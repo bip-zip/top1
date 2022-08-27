@@ -1,0 +1,102 @@
+/*--
+    13. Gallery Css
+-------------------------------------*/
+.gallery__menu {
+    margin-bottom: 20px;
+    & button {
+        background: #333;
+        border: 0 none;
+        color: $white;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 400;
+        margin: 0 5px 10px 5px;
+        border-radius: 25px;
+        padding: 10px 25px;
+        cursor: pointer;
+        text-transform: uppercase;
+        -webkit-transition: all 0.5s ease 0s;
+        transition: all 0.5s ease 0s;
+    }
+}
+
+
+
+.gallery__menu button.is-checked, .gallery__menu button:hover {
+    background: $theme-color;
+    color: $white;
+    outline: medium none;
+}
+
+.single-gallery {
+    position: relative;
+    margin-top: 30px;
+    & img {
+        width: 100%;
+    }
+    &:after {
+        position: absolute;
+        content: '';
+        height: 100%;
+        width: 100%;
+        top: 0;
+        right: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease-in-out;
+        background: rgba(0, 0, 0, 0.5);
+    }
+    & .gallery-content {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        text-align: center;
+        transform: translate(-50%,-50%);
+        z-index: 3;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease-in-out;
+        & h5 {
+            color: $white;
+            font-weight: 600;
+            font-size: 18px;
+        }
+        & .gallery-icon-box {
+            margin-bottom: 10px;
+            & a {
+                background: $theme-color;
+                display: inline-block;
+                height: 40px;
+                width: 40px;
+                line-height: 40px;
+                border-radius: 100%;
+                color: $white;
+                margin: 10px;
+                transition: all 0.3s ease-in-out;
+                &:hover {
+                    color: #333;
+                    background: #fff !important;
+                }
+            }
+        }
+        
+    }
+    
+    &:hover {
+        &:after {
+            opacity: 1;
+            visibility: visible;
+        }
+        & .gallery-content {
+            opacity: 1;
+            visibility: visible;
+            & .gallery-icon-box {
+                & a {
+                    background: $theme-color;
+                    margin: 10px 5px;
+                }
+            }
+        }
+        
+    }
+}
